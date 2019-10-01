@@ -100,6 +100,29 @@ public class ServiceImpl implements ServiceInterface {
 		return TestHelperProducts.getTestBrands(type);
 	}
 	
+	public void addToCart(Integer id) {
+		customerDao.getLoggedInCustomer().addToCart(id);
+	}
+	
+	public String getProductListHtml() {
+		Collection<Product> products = customerDao.getLoggedInCustomer().getProductList();
+		
+		StringBuilder builder = new StringBuilder();
+		
+		products.stream()
+			.forEach(p -> {
+				builder.append(
+						"<tr><th scope=\"row\">" + p.getId() + "</th>"
+						+	"<td>" + p.getName() + "</td>"
+						+	"<td>" + p.getBrand() + "</td>"
+						+	"<td>" + p.getPrice() + "</td>"
+						+	"<td><button class=\"btn btn-sm btn-danger\" type=\"delete\">Delete</button></td>"
+						+"</tr>");
+			});
+		
+		return builder.toString();
+	}
+	
 	// -----------------------------------------------------------------------------------------------------------------
 	
     @Autowired

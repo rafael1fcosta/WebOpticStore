@@ -6,7 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.view.RedirectView;
 
 import com.opticstore.model.brand.BrandType;
 import com.opticstore.model.product.Product;
@@ -22,6 +25,10 @@ public class ShopController {
 	
 	@GetMapping(path = "/shop/{option}")
 	public ModelAndView toShopForFrames(@PathVariable String option) {
+		
+		if (service.getLoggedInCustomer() == null) {
+			return new ModelAndView(new RedirectView("welcome"));
+		}
 		
 		BrandType brandTypeChoosen = getBrandTypeChoosen(option);
 		
@@ -43,6 +50,10 @@ public class ShopController {
 	@GetMapping(path = "/shop/filter/{type}/{id}")
 	public ModelAndView filterProducts(@PathVariable String type, @PathVariable Integer id) {
 		
+		if (service.getLoggedInCustomer() == null) {
+			return new ModelAndView(new RedirectView("welcome"));
+		}
+		
 		BrandType brandTypeChoosen = getBrandTypeChoosen(type);
 		
 		Map<String, Object> models = util.addCustomerToModel();
@@ -62,6 +73,18 @@ public class ShopController {
 	}
 	
 	//---------------------------------------------------------------------------------------------------
+	
+	@PostMapping(path = {"shop/{type}", "shop/filter/{type}/{id}"})
+	public ModelAndView addToCart(@PathVariable String type, @RequestParam(name ="addToCart") Integer id) {
+		
+		Map<String, Object> models = util.addCustomerToModel();
+		
+		service.addToCart(id);
+		
+		models.put("products", service.getProductListHtml());
+		
+		return new ModelAndView("cart", models);
+	}
 	
 	//---------------------------------------------------------------------------------------------------
 	

@@ -48,10 +48,12 @@ public class Product extends AbstractModel {
 				+ 		"<p class=\"card-text\">Lorem ipsum dolor sit amet, consectetur"
 				+ 			"adipisicing elit. Amet numquam aspernatur!</p>"
 				+ 	"</div>"
-				+  	"<button type=\"button\" class=\"btn btn-warning\" style=\"margin: 20px;\">"
-				+ 		"<a href=\"http://localhost:8080/OpticStore/cart/" + product.getId() + "\">Add to cart!</a>"
-				+ 	"</button>"
-
+				+ 	"<form method=\"post\">"
+				+		"<input type=\"hidden\" name=\"addToCart\" value=\"" + product.getId() + "\">"
+				+  		"<button type=\"submit\" class=\"btn btn-warning\" value=\"submit\" style=\"margin: 0px 0px 20px 20px;\">"
+				+ 			"Add to cart!"
+				+ 		"</button>"
+				+ 	"</form>"
 				+ "</div>"
 				+"</div>";
 	}

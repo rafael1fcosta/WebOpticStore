@@ -60,4 +60,8 @@ public class TestHelperProducts {
 				.collect(Collectors.toList());
 	}
 	
+	public static Product getProduct(Integer id) {
+		return products.get(id);
+	}
+	
 }

@@ -41,7 +41,7 @@ public class CustomerPageController {
 	@PostMapping(path="/customerPage")
 	public ModelAndView addPrescription() {
 		
-		return new ModelAndView("/newPrescriptionPage", util.addCustomerToModel());
+		return new ModelAndView("newPrescriptionPage", util.addCustomerToModel());
 	}
 	
 	@PostMapping(path="/customerPage", params = "save")

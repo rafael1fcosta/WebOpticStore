@@ -13,7 +13,7 @@
 <body>
 
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-		<a class="navbar-brand" href="#">Web Optical Store</a>
+		<a class="navbar-brand" href="">Web Optical Store</a>
 
 		<button class="navbar-toggler" type="button" data-toggle="collapse"
 			data-target="#navbarResponsive" aria-controls="navbarResponsive"
@@ -30,7 +30,7 @@
 				<li class="nav-item"><a class="nav-link" href="">User id:
 						${customer.getId()}</a></li>
 
-				<li class="nav-item"><a class="nav-link" href="">Cart</a></li>
+				<li class="nav-item"><a class="nav-link" href="http://localhost:8080/OpticStore/cart">Cart</a></li>
 				
 				<li class="nav-item">
 	          		<a class="nav-link" href="http://localhost:8080/OpticStore/shop/logout">LogOut</a>
@@ -48,23 +48,15 @@
 		<table class="table table-striped">
 			<thead>
 				<tr>
-					<th scope="col"></th>
-					<th scope="col">Product</th>
-					<th scope="col">Available</th>
-					<th scope="col">Quantity</th>
+					<th scope="col">Product Id</th>
+					<th scope="col">Product Name</th>
+					<th scope="col">Brand</th>
 					<th scope="col">Price</th>
 					<th scope="col">Delete</th>
 				</tr>
 			</thead>
 			<tbody>
-				<!--${products}-->
-				
-				<tr>
-					<th scope="row">1</th>
-					<td></td>
-					<td></td>
-					<td></td>
-				</tr>
+				${products}
 			</tbody>
 		</table>
 
