@@ -18,7 +18,7 @@ public class CartController {
 
 	//---------------------------------------------------------------------------------------------------
 	
-	@GetMapping(path = "/shop/cart")
+	@GetMapping(path = "/cart")
 	public ModelAndView cart() {
 		
 		if (service.getLoggedInCustomer() == null) {

@@ -23,14 +23,14 @@
 
 		<div class="collapse navbar-collapse" id="navbarResponsive">
 			<ul class="navbar-nav ml-auto">
-				<li class="nav-item active"><a class="nav-link" href="#">UserName:
-						${customer.getName()} <span class="sr-only">(current)</span>
+				<li class="nav-item active"><a class="nav-link" href="http://localhost:8080/OpticStore/customerPage">
+					UserName: ${customer.getName()} <span class="sr-only">(current)</span>
 				</a></li>
 
-				<li class="nav-item"><a class="nav-link" href="#">User id:
+				<li class="nav-item"><a class="nav-link" href="">User id:
 						${customer.getId()}</a></li>
 
-				<li class="nav-item"><a class="nav-link" href="http://localhost:8080/OpticStore/shop/cart">Cart</a></li>
+				<li class="nav-item"><a class="nav-link" href="http://localhost:8080/OpticStore/cart">Cart</a></li>
 				
 				<li class="nav-item">
 	          		<a class="nav-link" href="http://localhost:8080/OpticStore/shop/logout">LogOut</a>

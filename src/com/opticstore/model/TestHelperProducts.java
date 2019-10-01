@@ -21,7 +21,7 @@ public class TestHelperProducts {
 	private static final Brand bausch = new Brand("Bausch&Lomb", BrandType.CONTACTS);
 	
 	private static final Product model1 = new Product("Model 1", luxottica, 75.99);
-	private static final Product model2 = new Product("Model 2", persol, 153.00);
+	private static final Product model2 = new Product("Model 2", luxottica, 153.00);
 	private static final Product steveMcqueen = new Product("Steve Mcqueen", persol, 199.00);
 	
 	private static final Product biofinity = new Product("Biofinity", cooperVision, 25.99);

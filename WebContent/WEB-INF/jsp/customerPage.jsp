@@ -17,17 +17,17 @@
 	    <div class="collapse navbar-collapse" id="navbarResponsive">
 	      <ul class="navbar-nav ml-auto">
 	        <li class="nav-item active">
-	          <a class="nav-link">UserName: ${customer.getName()}
+	          <a class="nav-link" href="">UserName: ${customer.getName()}
 	            <span class="sr-only">(current)</span>
 	          </a>
 	        </li>
 	        
 	        <li class="nav-item">
-	          <a class="nav-link">User id: ${customer.getId()}</a>
+	          <a class="nav-link" href="">User id: ${customer.getId()}</a>
 	        </li>
 	        
 	        <li class="nav-item">
-	          <a class="nav-link">Cart</a>
+	          <a class="nav-link" href="http://localhost:8080/OpticStore/cart">Cart</a>
 	        </li>
 	        
 	        <li class="nav-item">
@@ -84,7 +84,7 @@
 		      		</div>
 		      		
 		      		<div class="carousel-item">
-		        		<a href="http://localhost:8080/OpticStore/shop/contacts"><img src="./resources/glasses.jpg" class="d-block w-100"></a>
+		        		<a href="http://localhost:8080/OpticStore/shop/contact-lens"><img src="./resources/glasses.jpg" class="d-block w-100"></a>
 		        		<div class="carousel-caption d-none d-md-block">
 		          			<h5>Contact lens</h5>
 		          			<p>Get the most comfortable lens</p>
