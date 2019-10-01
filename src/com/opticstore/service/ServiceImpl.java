@@ -1,23 +1,19 @@
 package com.opticstore.service;
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Map;
-import java.util.stream.IntStream;
 
-import javax.print.attribute.IntegerSyntax;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.opticstore.controller.ShopOptionsProducer;
 import com.opticstore.dao.AbstractDao;
-import com.opticstore.dao.BrandDao;
+import com.opticstore.model.TestHelperProducts;
 import com.opticstore.model.brand.Brand;
-import com.opticstore.model.brand.ContactsBrand;
-import com.opticstore.model.brand.FrameBrand;
+import com.opticstore.model.brand.BrandType;
 import com.opticstore.model.customer.Customer;
 import com.opticstore.model.customer.Prescription;
+import com.opticstore.model.product.Product;
 
 
 @Service
@@ -25,9 +21,6 @@ public class ServiceImpl implements ServiceInterface {
 
     private AbstractDao<Customer> customerDao;
     private AbstractDao<Prescription> prescriptionDao;
-    
-    private BrandDao<FrameBrand> frameBrand;
-    private BrandDao<ContactsBrand> contactsBrand;
 
     // -----------------------------------------------------------------------------------------------------------------
 
@@ -98,16 +91,13 @@ public class ServiceImpl implements ServiceInterface {
 		prescriptionDao.logOut();
 	}
 
-	public Collection<Brand> getBrands(ShopOptionsProducer option) {
+	public Collection<Product> getProducts(BrandType type) {
 		
-		Collection<Brand> brands = new ArrayList<>();
-		
-		switch(option) {
-			case TEST_ONLY:
-				IntStream.range(0, 5).forEach(b -> brands.add(new Brand("Test Brand")));
-		}
-		
-		return brands;
+		return TestHelperProducts.getTestProducts(type);
+	}
+	
+	public Collection<Brand> getBrands(BrandType type) {
+		return TestHelperProducts.getTestBrands(type);
 	}
 	
 	// -----------------------------------------------------------------------------------------------------------------
@@ -123,14 +113,4 @@ public class ServiceImpl implements ServiceInterface {
     public void setPrescriptionDao(AbstractDao<Prescription> prescriptionDao) {
         this.prescriptionDao = prescriptionDao;
     }
-
-
-	public void setFrameBrand(BrandDao<FrameBrand> frameBrand) {
-		this.frameBrand = frameBrand;
-	}
-
-
-	public void setContactsBrand(BrandDao<ContactsBrand> contactsBrand) {
-		this.contactsBrand = contactsBrand;
-	}
 }

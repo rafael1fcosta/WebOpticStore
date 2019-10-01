@@ -11,8 +11,8 @@ public enum ShopOptionsProducer {
 	TEST_ONLY("Test only");
 	
 	private String type;
-	private final String prefixBegin = "<div class=\"col-lg-3\"><h1 class=\"my-4\">";
-	private final String prefixEnd = "</h1><div class=\"list-group\" id=\"brands\">";
+	
+	private final String prefix = "<div class=\"col-lg-3\"><h1 class=\"my-4\"></h1><div class=\"list-group\" id=\"brands\">";
 	
 	private final String brandBegin = "<a href=\"#\" class=\"list-group-item\"";
 	
@@ -30,13 +30,16 @@ public enum ShopOptionsProducer {
 	public String createHtml(Collection<Brand> brands) {
 		
 		StringBuilder builder = new StringBuilder();
-		
-		builder.append(prefixBegin + type + prefixEnd);
+		builder.append(prefix);
 		
 		brands.stream().forEach(b -> builder.append(brandBegin + idBegin + "brand" + b.getId() + idEnd + b.getName() + brandEnd));
 		
 		builder.append(suffix);
 		
 		return builder.toString();
+	}
+	
+	public String getType() {
+		return type;
 	}
 }

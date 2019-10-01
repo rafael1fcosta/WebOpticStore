@@ -30,7 +30,7 @@
 				<li class="nav-item"><a class="nav-link" href="#">User id:
 						${customer.getId()}</a></li>
 
-				<li class="nav-item"><a class="nav-link" href="http://localhost:8080/OpticStore/shop/cart">Cart</a></li>
+				<li class="nav-item"><a class="nav-link" href="#">Cart</a></li>
 				
 				<li class="nav-item">
 	          		<a class="nav-link" href="http://localhost:8080/OpticStore/shop/logout">LogOut</a>
@@ -40,70 +40,36 @@
 	</nav>
 	
 	<div class="jumbotron" style="text-align: center; margin-top: 20px;">
-		<h1 class="display-4">${type}</h1>
+		<h1 class="display-4">Cart</h1>
 	</div>
 
 	<div class="container">
 
-		<div class="row">
-
-			${options}
-
-
-			<div class="col-lg-9">
-
-				<div id="headLines" class="carousel slide my-4" data-ride="carousel">
-					<ol class="carousel-indicators">
-						<li data-target="#headLines" data-slide-to="0" class="active"></li>
-						<li data-target="#headLines" data-slide-to="1"></li>
-						<li data-target="#headLines" data-slide-to="2"></li>
-					</ol>
-					<div class="carousel-inner" role="listbox">
-						<div class="carousel-item active">
-							<img class="d-block img-fluid" src="http://placehold.it/900x350"
-								alt="First slide">
-						</div>
-						<div class="carousel-item">
-							<img class="d-block img-fluid" src="http://placehold.it/900x350"
-								alt="Second slide">
-						</div>
-						<div class="carousel-item">
-							<img class="d-block img-fluid" src="http://placehold.it/900x350"
-								alt="Third slide">
-						</div>
-					</div>
-					<a class="carousel-control-prev" href="#headLines" role="button"
-						data-slide="prev"> <span class="carousel-control-prev-icon"
-						aria-hidden="true"></span> <span class="sr-only">Previous</span>
-					</a> <a class="carousel-control-next" href="#headLines" role="button"
-						data-slide="next"> <span class="carousel-control-next-icon"
-						aria-hidden="true"></span> <span class="sr-only">Next</span>
-					</a>
-				</div>
-
-
-
-				<div class="row" id="products">
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th scope="col"></th>
+					<th scope="col">Product</th>
+					<th scope="col">Available</th>
+					<th scope="col">Quantity</th>
+					<th scope="col">Price</th>
+					<th scope="col">Delete</th>
+				</tr>
+			</thead>
+			<tbody>
+				<!--${products}-->
 				
-					${products}
+				<tr>
+					<th scope="row">1</th>
+					<td>Mark</td>
+					<td>Otto</td>
+					<td>@mdo</td>
+				</tr>
+			</tbody>
+		</table>
 
-				</div>
-			</div>
-		</div>
 	</div>
 
-	
-	<script>
-	
-		var brands = document.getElementById("brands").childNodes;
-	
-		var products = document.getElementById("products");
-		
-		console.log(brands);
-		console.log(products);
-
-	
-	</script>
 
 
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
