@@ -1,5 +1,7 @@
 package com.opticstore.controller;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -36,8 +38,8 @@ public class UtilForController {
 			builder.append(
 					"<tr>"
 					+ "<th scope='row'>" + p.getId()  + "</th>"
-					+ "<td>" + p.getSphere() + "</td>"
-					+ "<td>" + p.getCil() + "</td>"
+					+ "<td>" + new BigDecimal( p.getSphere()).setScale(2, RoundingMode.HALF_UP) + "</td>"
+					+ "<td>" + new BigDecimal( p.getCil()).setScale(2, RoundingMode.HALF_UP) + "</td>"
 					+ "<td>" + p.getAxis() + "</td>"
 					+ "</tr>"
 					)

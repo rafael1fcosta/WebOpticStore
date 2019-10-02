@@ -3,6 +3,8 @@
 <head>
 <title>Optic Store</title>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link rel="shortcut icon" href="./resources/favicon.ico" type="image/x-icon">
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>
 </head>
 
 <body>
@@ -17,13 +19,11 @@
 	    <div class="collapse navbar-collapse" id="navbarResponsive">
 	      <ul class="navbar-nav ml-auto">
 	        <li class="nav-item active">
-	          <a class="nav-link" href="">UserName: ${customer.getName()}
-	            <span class="sr-only">(current)</span>
-	          </a>
+	          <a class="nav-link" href=""><i class="fas fa-user"></i> ${customer.getName()}</a>
 	        </li>
 	        
 	        <li class="nav-item">
-	          <a class="nav-link" href="http://localhost:8080/OpticStore/cart">Cart</a>
+	          <a class="nav-link" href="http://localhost:8080/OpticStore/cart"><i class="fa fa-shopping-cart"></i></a>
 	        </li>
 	        
 	        <li class="nav-item">
@@ -33,7 +33,7 @@
 	    </div>
 	</nav>
 	
-	<div class="container" style="padding-top:70px;">
+	<div class="container" style="padding:70px 5% 0px 5%;">
 	
 		<div class="jumbotron">
 			<div style='text-align:center;'>
@@ -42,7 +42,7 @@
 			</div>
 			<hr class="my-4">
 		</div>
-		<i class="fa fa-shopping-cart"></i> Cart
+
 		<table class="table table-hover">
 			<caption>List of Prescriptions</caption>
 		  <thead>

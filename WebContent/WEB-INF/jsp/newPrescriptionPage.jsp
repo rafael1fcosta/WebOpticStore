@@ -2,7 +2,9 @@
 <html>
 <head>
 <title>Optic Store</title>
+<link rel="shortcut icon" href="./resources/favicon.ico" type="image/x-icon">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>
 </head>
 
 <body>
@@ -17,13 +19,11 @@
 	    <div class="collapse navbar-collapse" id="navbarResponsive">
 	      <ul class="navbar-nav ml-auto">
 	        <li class="nav-item active">
-	          <a class="nav-link" href="http://localhost:8080/OpticStore/customerPage">UserName: ${customer.getName()}
-	            <span class="sr-only">(current)</span>
-	          </a>
+	          <a class="nav-link" href="http://localhost:8080/OpticStore/customerPage"><i class="fas fa-user"></i> ${customer.getName()}</a>
 	        </li>
 	        
 	        <li class="nav-item">
-	          <a class="nav-link" href="http://localhost:8080/OpticStore/cart">Cart</a>
+	          <a class="nav-link" href="http://localhost:8080/OpticStore/cart"><i class="fa fa-shopping-cart"></i></a>
 	        </li>
 	        
 	       	<li class="nav-item">
