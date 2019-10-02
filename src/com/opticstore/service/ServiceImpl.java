@@ -1,5 +1,7 @@
 package com.opticstore.service;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.Collection;
 import java.util.Map;
 
@@ -119,7 +121,7 @@ public class ServiceImpl implements ServiceInterface {
 						"<tr><th scope=\"row\">" + p.getId() + "</th>"
 						+	"<td>" + p.getName() + "</td>"
 						+	"<td>" + p.getBrand() + "</td>"
-						+	"<td>" + p.getPrice() + "</td>"
+						+	"<td>" + new BigDecimal(p.getPrice()).setScale(2, RoundingMode.HALF_UP) + "&euro;</td>"
 						+ "<td>"
 						+ 	"<form method=\"post\">"
 						+ 		"<input type=\"hidden\" name=\"delete\" value=\"" + p.getId() + "\">"
@@ -128,6 +130,13 @@ public class ServiceImpl implements ServiceInterface {
 						+ "</td>"
 						+"</tr>");
 			});
+		Double totalPrice = customerDao.getLoggedInCustomer().getTotalPrice();
+		builder.append(
+				"<tr><th scope=\"row\"></th>"
+				+ "<td></td><td></td>"
+				+ "<th>Total:</th><th>" + new BigDecimal(totalPrice).setScale(2, RoundingMode.HALF_UP) + "&euro;</th>"
+				);
+		
 		
 		return builder.toString();
 	}

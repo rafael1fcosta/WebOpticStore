@@ -52,4 +52,8 @@ public class Customer extends AbstractModel{
     public Collection<Product> getProductList() {
     	return products;
     }
+    
+    public Double getTotalPrice() {
+    	return products.stream().reduce(new Double(0), (partialPrice, p) -> partialPrice + p.getPrice(), Double::sum);
+    }
 }

@@ -23,10 +23,6 @@
 	        </li>
 	        
 	        <li class="nav-item">
-	          <a class="nav-link" href="">User id: ${customer.getId()}</a>
-	        </li>
-	        
-	        <li class="nav-item">
 	          <a class="nav-link" href="http://localhost:8080/OpticStore/cart">Cart</a>
 	        </li>
 	        
@@ -46,7 +42,7 @@
 			</div>
 			<hr class="my-4">
 		</div>
-		
+		<i class="fa fa-shopping-cart"></i> Cart
 		<table class="table table-hover">
 			<caption>List of Prescriptions</caption>
 		  <thead>

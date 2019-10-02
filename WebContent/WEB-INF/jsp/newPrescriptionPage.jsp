@@ -23,10 +23,6 @@
 	        </li>
 	        
 	        <li class="nav-item">
-	          <a class="nav-link" href="">User id: ${customer.getId()}</a>
-	        </li>
-	        
-	        <li class="nav-item">
 	          <a class="nav-link" href="http://localhost:8080/OpticStore/cart">Cart</a>
 	        </li>
 	        
