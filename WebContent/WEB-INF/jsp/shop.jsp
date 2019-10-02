@@ -13,7 +13,7 @@
 <body>
 
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-		<a class="navbar-brand" href="">Web Optical Store</a>
+		<a class="navbar-brand" href="http://localhost:8080/OpticStore/customerPage">Web Optical Store</a>
 
 		<button class="navbar-toggler" type="button" data-toggle="collapse"
 			data-target="#navbarResponsive" aria-controls="navbarResponsive"

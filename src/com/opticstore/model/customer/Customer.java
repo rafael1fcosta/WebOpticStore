@@ -45,6 +45,10 @@ public class Customer extends AbstractModel{
     	products.add(TestHelperProducts.getProduct(id));
     }
     
+    public void removeFromCart(Integer id) {
+    	products.remove(TestHelperProducts.getProduct(id));
+    }
+    
     public Collection<Product> getProductList() {
     	return products;
     }

@@ -104,6 +104,10 @@ public class ServiceImpl implements ServiceInterface {
 		customerDao.getLoggedInCustomer().addToCart(id);
 	}
 	
+	public void removeFromCart(Integer id) {
+		customerDao.getLoggedInCustomer().removeFromCart(id);
+	}
+	
 	public String getProductListHtml() {
 		Collection<Product> products = customerDao.getLoggedInCustomer().getProductList();
 		
@@ -116,7 +120,12 @@ public class ServiceImpl implements ServiceInterface {
 						+	"<td>" + p.getName() + "</td>"
 						+	"<td>" + p.getBrand() + "</td>"
 						+	"<td>" + p.getPrice() + "</td>"
-						+	"<td><button class=\"btn btn-sm btn-danger\" type=\"delete\">Delete</button></td>"
+						+ "<td>"
+						+ 	"<form method=\"post\">"
+						+ 		"<input type=\"hidden\" name=\"delete\" value=\"" + p.getId() + "\">"
+						+ 		"<button class=\"btn btn-sm btn-danger\" type=\"submit\">Delete</button>"
+						+ 	"</form>"
+						+ "</td>"
 						+"</tr>");
 			});
 		

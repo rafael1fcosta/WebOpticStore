@@ -75,15 +75,11 @@ public class ShopController {
 	//---------------------------------------------------------------------------------------------------
 	
 	@PostMapping(path = {"shop/{type}", "shop/filter/{type}/{id}"})
-	public ModelAndView addToCart(@PathVariable String type, @RequestParam(name ="addToCart") Integer id) {
-		
-		Map<String, Object> models = util.addCustomerToModel();
+	public String addToCart(@PathVariable String type, @RequestParam(name = "addToCart") Integer id) {
 		
 		service.addToCart(id);
 		
-		models.put("products", service.getProductListHtml());
-		
-		return new ModelAndView("cart", models);
+		return "redirect:/shop/" + type;
 	}
 	
 	//---------------------------------------------------------------------------------------------------
