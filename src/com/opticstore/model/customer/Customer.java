@@ -65,9 +65,9 @@ public class Customer extends AbstractModel{
     }
 
 	public void addLensToCart(Integer id, Integer price) {
-		String name = prescriptionMap.get(id).getEye().getString() + " Eye lens";
+		String lensName = prescriptionMap.get(id).getEye().getString() + " Eye lens";
 		Brand brand = new Brand("Essilor", BrandType.LENS);
-		Lens lens = new Lens(name, brand, new Double(price));
+		Lens lens = new Lens(lensName, brand, new Double(price));
 		
 		products.add(lens);
 		TestHelperProducts.addLens(lens);

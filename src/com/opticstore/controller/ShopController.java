@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
+import com.opticstore.model.ModelToHtml;
 import com.opticstore.model.brand.BrandType;
 import com.opticstore.model.product.Product;
 import com.opticstore.service.ServiceImpl;
@@ -39,7 +40,7 @@ public class ShopController {
 		StringBuilder builder = new StringBuilder();
 		
 		service.getProducts(brandTypeChoosen)
-			.stream().forEach(p -> builder.append(Product.creatHtml(p)));
+			.stream().forEach(p -> builder.append(ModelToHtml.createProductHtml(p)));
 		
 		models.put("products", builder.toString());
 		
@@ -65,7 +66,7 @@ public class ShopController {
 		service.getProducts(brandTypeChoosen)
 			.stream()
 			.filter(p -> p.getBrand().getId() == id)
-			.forEach(p -> builder.append(Product.creatHtml(p)));
+			.forEach(p -> builder.append(ModelToHtml.createProductHtml(p)));
 	
 		models.put("products", builder.toString());
 		
@@ -87,7 +88,7 @@ public class ShopController {
 	private Map<String, Object> addBrandTypeOptions(BrandType brandTypeChoosen, Map<String, Object> models) {
 		
 		models.put("type", brandTypeChoosen.getName());
-		models.put("options", brandTypeChoosen.createHtml(service.getBrands(brandTypeChoosen)));
+		models.put("options", ModelToHtml.createBrandTypeList(service.getBrands(brandTypeChoosen)));
 		
 		return models;
 	}

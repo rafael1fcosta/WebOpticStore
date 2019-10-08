@@ -8,6 +8,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import com.opticstore.model.ModelToHtml;
 import com.opticstore.model.customer.Customer;
 import com.opticstore.model.customer.Prescription;
 import com.opticstore.service.ServiceImpl;
@@ -32,21 +33,7 @@ public class UtilForController {
 		
 		Map<Integer, Prescription> prescriptionMap = service.getPrescriptionMap();
 		
-		StringBuilder builder = new StringBuilder();
-		
-		prescriptionMap.values().stream().forEach(p ->
-			builder.append(
-					"<tr>"
-					+ "<th scope='row'>" + p.getId()  + "</th>"
-					+ "<td>" + new BigDecimal( p.getSphere()).setScale(2, RoundingMode.HALF_UP) + "</td>"
-					+ "<td>" + new BigDecimal( p.getCil()).setScale(2, RoundingMode.HALF_UP) + "</td>"
-					+ "<td>" + p.getAxis() + "</td>"
-					+ "<td>" + p.getEye().getString() + "</td>"
-					+ "</tr>"
-					)
-		);
-
-		models.put("prescriptions", builder.toString());
+		models.put("prescriptions", ModelToHtml.createPrescriptionList(prescriptionMap));
 		
 		return models;
 	}

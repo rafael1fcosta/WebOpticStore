@@ -32,7 +32,7 @@ public class CartController {
 		
 		Map<String, Object> models = util.addCustomerToModel();
 		
-		models.put("products", service.getProductListHtml());
+		models.put("products", service.getProductListToCart());
 		
 		return new ModelAndView("cart", models);
 	}
@@ -46,7 +46,7 @@ public class CartController {
 		
 		service.removeFromCart(id);
 		
-		models.put("products", service.getProductListHtml());
+		models.put("products", service.getProductListToCart());
 		
 		return new ModelAndView("cart", models);
 	}
@@ -75,7 +75,7 @@ public class CartController {
 		
 		service.addLens(prescId, price);
 		
-		models.put("products", service.getProductListHtml());
+		models.put("products", service.getProductListToCart());
 		
 		return new ModelAndView("cart", models);
 	}
