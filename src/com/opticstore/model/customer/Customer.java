@@ -64,10 +64,10 @@ public class Customer extends AbstractModel{
     	return products.stream().reduce(new Double(0), (partialPrice, p) -> partialPrice + p.getPrice(), Double::sum);
     }
 
-	public void addLensToCart(Integer id) {
+	public void addLensToCart(Integer id, Integer price) {
 		String name = prescriptionMap.get(id).getEye().getString() + " Eye lens";
 		Brand brand = new Brand("Essilor", BrandType.LENS);
-		Lens lens = new Lens(name, brand, new Double("100"));
+		Lens lens = new Lens(name, brand, new Double(price));
 		
 		products.add(lens);
 		TestHelperProducts.addLens(lens);

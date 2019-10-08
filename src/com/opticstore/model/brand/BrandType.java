@@ -46,6 +46,19 @@ public enum BrandType {
 		
 		return builder.toString();
 	}
+
+	public static BrandType getType(String string) {
+
+		string = string.substring(0, string.length()-1);
+		
+		switch (string) {
+			case "frames":
+				return FRAME;
+	
+			default:
+				return null;
+		}
+	}
 	
 	public String getName() {
 		return name;

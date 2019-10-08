@@ -145,7 +145,7 @@ public class ServiceImpl implements ServiceInterface {
 						.forEach(
 							presc -> {
 								builder.append(
-											"<option value=\"" + presc.getId() + "\">"
+											"<option value=\"" + presc.getId() + " " + p.getBrand().getType() + "\">"
 											+ 	presc.getId() + " " + presc.getEye() + " Eye"
 											+ "</option>"
 										);
@@ -179,8 +179,8 @@ public class ServiceImpl implements ServiceInterface {
 		return builder.toString();
 	}
 	
-	public void addLens(Integer id) {
-		customerDao.getLoggedInCustomer().addLensToCart(id);
+	public void addLens(Integer id, Integer price) {
+		customerDao.getLoggedInCustomer().addLensToCart(id, price);
 	}
 	
 	// -----------------------------------------------------------------------------------------------------------------

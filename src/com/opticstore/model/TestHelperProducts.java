@@ -1,6 +1,5 @@
 package com.opticstore.model;
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
@@ -39,6 +38,10 @@ public class TestHelperProducts {
 		model1.setImgId(1);
 		model2.setImgId(2);
 		steveMcqueen.setImgId(3);
+		
+		biofinity.setImgId(1);
+		ultraHd.setImgId(2);
+		biotrue1day.setImgId(3);
 		
 		products.put(model1.getId(), model1);
 		products.put(model2.getId(), model2);

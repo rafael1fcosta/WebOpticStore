@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
+import com.opticstore.model.brand.BrandType;
 import com.opticstore.service.ServiceImpl;
 
 @Controller
@@ -51,15 +52,28 @@ public class CartController {
 	}
 	
 	@PostMapping(path = "/cart", params = "add")
-	public ModelAndView addPrescriptionToProduct(@RequestParam(name = "add") Integer prescrId) {
+	public ModelAndView addPrescriptionToProduct(@RequestParam(name = "add") String input) {
 		
-		if (prescrId == null) {
+		System.out.print(input);
+		
+		if (input == null || input.isEmpty()) {
 			return new ModelAndView(new RedirectView("cart"));
 		}
 		
+		String[] inputArray = input.split(" ");
+		
 		Map<String, Object> models = util.addCustomerToModel();
 		
-		service.addLens(prescrId);
+		Integer prescId = Integer.valueOf(inputArray[0]);
+		BrandType type = BrandType.getType(inputArray[1]);
+		
+		Integer price = 0;
+		
+		if (type == BrandType.FRAME) {
+			price = 75;
+		}
+		
+		service.addLens(prescId, price);
 		
 		models.put("products", service.getProductListHtml());
 		
