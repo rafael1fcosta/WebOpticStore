@@ -51,7 +51,8 @@ public class CustomerPageController {
 		
 		if(prescription.getSphere() == null 
 				|| prescription.getCil() == null 
-				|| prescription.getAxis() == null) {
+				|| prescription.getAxis() == null
+				|| prescription.getEye() == null) {
 			models.put("alert", AlertMessage.EMPTY.getMessage());
 			return new ModelAndView("newPrescriptionPage", models);
 		}

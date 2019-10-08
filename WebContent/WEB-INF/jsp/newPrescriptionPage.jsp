@@ -10,7 +10,7 @@
 <body>
 
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-		<a class="navbar-brand" href="http://localhost:8080/OpticStore/customerPage">Web Optical Store</a>
+		<a class="navbar-brand" href="http://localhost:8080/OpticStore/customerPage"><img alt="" src="./resources/logo.png" style="width:35px; height:auto;">    Web Optical Store</a>
 		
 	    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
 	      <span class="navbar-toggler-icon"></span>
@@ -19,15 +19,15 @@
 	    <div class="collapse navbar-collapse" id="navbarResponsive">
 	      <ul class="navbar-nav ml-auto">
 	        <li class="nav-item active">
-	          <a class="nav-link" href="http://localhost:8080/OpticStore/customerPage"><i class="fas fa-user"></i> ${customer.getName()}</a>
+	          <a class="nav-link" href="http://localhost:8080/OpticStore/customerPage"><button class="btn btn-sm btn-secondary"><i class="fas fa-user"></i> ${customer.getName()}</button></a>
 	        </li>
 	        
 	        <li class="nav-item">
-	          <a class="nav-link" href="http://localhost:8080/OpticStore/cart"><i class="fa fa-shopping-cart"></i></a>
+	          <a class="nav-link" href="http://localhost:8080/OpticStore/cart"><button class="btn btn-sm btn-success"><i class="fa fa-shopping-cart"></i> <b>${customer.getProductCount()}</b></button></a>
 	        </li>
 	        
 	       	<li class="nav-item">
-	          <a class="nav-link" href="http://localhost:8080/OpticStore/newPrescriptionPage/logout">LogOut</a>
+	          <a class="nav-link" href="http://localhost:8080/OpticStore/newPrescriptionPage/logout"><button class="btn btn-sm btn-danger">LogOut</button></a>
 	        </li>
 	        
 	      </ul>
@@ -53,6 +53,14 @@
 			<div class="form-group">
 				<label class="my-1 mr-2" for="axis">Axis</label>
 				<input type="number" min="0" max="180" class="form-control" id="axis" name="axis" placeholder="Enter axis">
+			</div>
+
+			<div class="form-group">
+				<label class="my-1 mr-2" for="eye">Eye</label>
+				<select class="form-control" id="eye" name="eye">
+					<option>right</option>
+      				<option>left</option>
+				</select>
 			</div>
 			
 			<button type="submit" class="btn btn-outline-success" name="save" value="submit">Save</button>

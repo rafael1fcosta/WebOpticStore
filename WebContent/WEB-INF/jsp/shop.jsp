@@ -1,39 +1,37 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-
+<html>
 <head>
- <meta charset="UTF-8"> 
 <title>Optic Store</title>
-<link rel="shortcut icon" href="./resources/favicon.ico" type="image/x-icon">
-<link rel="stylesheet"
-	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-	crossorigin="anonymous">
-	<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+<link rel="shortcut icon" href="http://localhost:8080/OpticStore/resources/favicon.ico" type="image/x-icon">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>
 </head>
 
 <body>
 
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-		<a class="navbar-brand" href="http://localhost:8080/OpticStore/customerPage">Web Optical Store</a>
-
-		<button class="navbar-toggler" type="button" data-toggle="collapse"
-			data-target="#navbarResponsive" aria-controls="navbarResponsive"
-			aria-expanded="false" aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
-		</button>
-
-		<div class="collapse navbar-collapse" id="navbarResponsive">
-			<ul class="navbar-nav ml-auto">
-				<li class="nav-item active"><a class="nav-link" href="http://localhost:8080/OpticStore/customerPage"><i class="fas fa-user"></i> ${customer.getName()}</a></li>
-
-				<li class="nav-item"><a class="nav-link" href="http://localhost:8080/OpticStore/cart"><i class="fa fa-shopping-cart"></i></a></li>
-				
-				<li class="nav-item">
-	          		<a class="nav-link" href="http://localhost:8080/OpticStore/shop/logout">LogOut</a>
-	        	</li>
-			</ul>
-		</div>
+		<a class="navbar-brand" href="http://localhost:8080/OpticStore/customerPage"><img alt="" src="http://localhost:8080/OpticStore/resources/logo.png" style="width:35px; height:auto;">    Web Optical Store</a>
+		
+	    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+	      <span class="navbar-toggler-icon"></span>
+	    </button>
+	    
+	    <div class="collapse navbar-collapse" id="navbarResponsive">
+	      <ul class="navbar-nav ml-auto">
+	        <li class="nav-item active">
+	          <a class="nav-link" href="http://localhost:8080/OpticStore/customerPage"><button class="btn btn-sm btn-secondary"><i class="fas fa-user"></i> ${customer.getName()}</button></a>
+	        </li>
+	        
+	        <li class="nav-item">
+	          <a class="nav-link" href="http://localhost:8080/OpticStore/cart"><button class="btn btn-sm btn-success"><i class="fa fa-shopping-cart"></i> <b>${customer.getProductCount()}</b></button></a>
+	        </li>
+	        
+	       	<li class="nav-item">
+	          <a class="nav-link" href="http://localhost:8080/OpticStore/newPrescriptionPage/logout"><button class="btn btn-sm btn-danger">LogOut</button></a>
+	        </li>
+	        
+	      </ul>
+	    </div>
 	</nav>
 	
 	<div class="jumbotron" style="text-align: center; margin-top: 20px;">
@@ -57,15 +55,15 @@
 					</ol>
 					<div class="carousel-inner" role="listbox">
 						<div class="carousel-item active">
-							<img class="d-block img-fluid" src="http://placehold.it/900x350"
+							<img class="d-block img-fluid" src="http://localhost:8080/OpticStore/resources/carousel-1.jpg"
 								alt="First slide">
 						</div>
 						<div class="carousel-item">
-							<img class="d-block img-fluid" src="http://placehold.it/900x350"
+							<img class="d-block img-fluid" src="http://localhost:8080/OpticStore/resources/carousel-2.jpg"
 								alt="Second slide">
 						</div>
 						<div class="carousel-item">
-							<img class="d-block img-fluid" src="http://placehold.it/900x350"
+							<img class="d-block img-fluid" src="http://localhost:8080/OpticStore/resources/carousel-3.jpg"
 								alt="Third slide">
 						</div>
 					</div>

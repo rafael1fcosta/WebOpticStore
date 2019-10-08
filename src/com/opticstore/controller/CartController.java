@@ -38,7 +38,7 @@ public class CartController {
 	
 	//---------------------------------------------------------------------------------------------------
 	
-	@PostMapping(path = "/cart")
+	@PostMapping(path = "/cart", params = "delete")
 	public ModelAndView deleteProduct(@RequestParam(name = "delete") Integer id) {
 		
 		Map<String, Object> models = util.addCustomerToModel();
@@ -49,6 +49,24 @@ public class CartController {
 		
 		return new ModelAndView("cart", models);
 	}
+	
+	@PostMapping(path = "/cart", params = "add")
+	public ModelAndView addPrescriptionToProduct(@RequestParam(name = "add") Integer prescrId) {
+		
+		if (prescrId == null) {
+			return new ModelAndView(new RedirectView("cart"));
+		}
+		
+		Map<String, Object> models = util.addCustomerToModel();
+		
+		service.addLens(prescrId);
+		
+		models.put("products", service.getProductListHtml());
+		
+		return new ModelAndView("cart", models);
+	}
+	
+	
 	
 	//---------------------------------------------------------------------------------------------------
 

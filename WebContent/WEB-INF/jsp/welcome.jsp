@@ -10,7 +10,7 @@
 
 	<div class="container">
 		<div class="jumbotron">
-			<h1 class="display-4">Web Optic Store<img alt="" src="./resources/logo.png"></h1>
+			<h1 class="display-4">Web Optic Store<img alt="" src="./resources/logo.png" class="float-right"></h1>
 			<p>Optical services online</p>
 			<hr class="my-4">
 			<div style='text-align:center;'>

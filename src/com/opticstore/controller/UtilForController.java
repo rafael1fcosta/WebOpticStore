@@ -41,6 +41,7 @@ public class UtilForController {
 					+ "<td>" + new BigDecimal( p.getSphere()).setScale(2, RoundingMode.HALF_UP) + "</td>"
 					+ "<td>" + new BigDecimal( p.getCil()).setScale(2, RoundingMode.HALF_UP) + "</td>"
 					+ "<td>" + p.getAxis() + "</td>"
+					+ "<td>" + p.getEye().getString() + "</td>"
 					+ "</tr>"
 					)
 		);

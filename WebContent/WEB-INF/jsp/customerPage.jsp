@@ -10,7 +10,7 @@
 <body>
 
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-		<a class="navbar-brand" href="">Web Optical Store</a>
+		<a class="navbar-brand" href=""><img alt="" src="./resources/logo.png" style="width:35px; height:auto;">    Web Optical Store</a>
 		
 	    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
 	      <span class="navbar-toggler-icon"></span>
@@ -19,17 +19,17 @@
 	    <div class="collapse navbar-collapse" id="navbarResponsive">
 	      <ul class="navbar-nav ml-auto">
 	        <li class="nav-item active">
-	          <a class="nav-link" href=""><i class="fas fa-user"></i> ${customer.getName()}</a>
+	          <a class="nav-link" href=""><button class="btn btn-sm btn-secondary"><i class="fas fa-user"></i> ${customer.getName()}</button></a>
 	        </li>
 	        
 	        <li class="nav-item">
-	          <a class="nav-link" href="http://localhost:8080/OpticStore/cart"><i class="fa fa-shopping-cart"></i></a>
+	          <a class="nav-link" href="http://localhost:8080/OpticStore/cart"><button class="btn btn-sm btn-success"><i class="fa fa-shopping-cart"></i> <b>${customer.getProductCount()}</b></button></a>
 	        </li>
 	        
 	        <li class="nav-item">
-	          <a class="nav-link" href="http://localhost:8080/OpticStore/customerPage/logout">LogOut</a>
+	          <a class="nav-link" href="http://localhost:8080/OpticStore/customerPage/logout"><button class="btn btn-sm btn-danger">LogOut</button></a>
 	        </li>
-	      </ul>
+			</ul>
 	    </div>
 	</nav>
 	
@@ -51,6 +51,7 @@
 		      <th scope="col">Sphere</th>
 		      <th scope="col">Cil</th>
 		      <th scope="col">Axis</th>
+		      <th scope="col">Eye</th>
 		    </tr>
 		  </thead>
 		  <tbody>
@@ -62,7 +63,7 @@
 			<button type="submit" class="btn btn-outline-secondary" name="addPresc" value="submit">Add Prescription</button>
 		</form>
 		
-		<div class="bd-example" style="padding-top: 30px">
+		<div class="bd-example" style="padding-top: 30px;">
  			<div id="shopOptions" class="carousel slide" data-ride="carousel">
  			
 				<ol class="carousel-indicators">
@@ -80,8 +81,8 @@
 		      		</div>
 		      		
 		      		<div class="carousel-item">
-		        		<a href="http://localhost:8080/OpticStore/shop/contact-lens"><img src="./resources/glasses.jpg" class="d-block w-100"></a>
-		        		<div class="carousel-caption d-none d-md-block">
+		        		<a href="http://localhost:8080/OpticStore/shop/contact-lens"><img src="./resources/contacts.jpg" class="d-block w-100"></a>
+		        		<div class="carousel-caption d-none d-md-block" style="background: rgb(169, 169, 169, 0.3);">
 		          			<h5>Contact lens</h5>
 		          			<p>Get the most comfortable lens</p>
 		        		</div>

@@ -7,6 +7,9 @@ import java.util.Map;
 
 import com.opticstore.model.AbstractModel;
 import com.opticstore.model.TestHelperProducts;
+import com.opticstore.model.brand.Brand;
+import com.opticstore.model.brand.BrandType;
+import com.opticstore.model.product.Lens;
 import com.opticstore.model.product.Product;
 
 public class Customer extends AbstractModel{
@@ -53,7 +56,22 @@ public class Customer extends AbstractModel{
     	return products;
     }
     
+    public int getProductCount() {
+    	return products.size();
+    }
+    
     public Double getTotalPrice() {
     	return products.stream().reduce(new Double(0), (partialPrice, p) -> partialPrice + p.getPrice(), Double::sum);
     }
+
+	public void addLensToCart(Integer id) {
+		String name = prescriptionMap.get(id).getEye().getString() + " Eye lens";
+		Brand brand = new Brand("Essilor", BrandType.LENS);
+		Lens lens = new Lens(name, brand, new Double("100"));
+		
+		products.add(lens);
+		TestHelperProducts.addLens(lens);
+		
+		
+	}
 }

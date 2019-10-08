@@ -10,7 +10,7 @@ public interface ServiceInterface {
 
     boolean clientHasPrescription();
 
-    void setClientPrescription(Double sphere, Double cil, Double axis);
+    void setClientPrescription(Double sphere, Double cil, Double axis, String eye);
 
     void setCustomerDao(AbstractDao<Customer> customerDao);
 

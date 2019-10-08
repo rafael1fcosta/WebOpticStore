@@ -14,7 +14,9 @@ import com.opticstore.model.TestHelperProducts;
 import com.opticstore.model.brand.Brand;
 import com.opticstore.model.brand.BrandType;
 import com.opticstore.model.customer.Customer;
+import com.opticstore.model.customer.Eye;
 import com.opticstore.model.customer.Prescription;
+import com.opticstore.model.product.Lens;
 import com.opticstore.model.product.Product;
 
 
@@ -45,13 +47,13 @@ public class ServiceImpl implements ServiceInterface {
     }
 
     @Override
-    public void setClientPrescription(Double sphere, Double cil, Double axis) {
+    public void setClientPrescription(Double sphere, Double cil, Double axis, String eye) {
     	
     	if (prescriptionDao.getLoggedInCustomer() == null) {
     		return;
     	}
 
-        prescriptionDao.add(new Prescription(sphere, cil, axis));
+        prescriptionDao.add(new Prescription(sphere, cil, axis, eye));
     }
 
     public void generateCustomerForTest() {
@@ -112,33 +114,73 @@ public class ServiceImpl implements ServiceInterface {
 	
 	public String getProductListHtml() {
 		Collection<Product> products = customerDao.getLoggedInCustomer().getProductList();
+		Collection<Prescription> prescriptions = prescriptionDao.getLoggedInCustomer().getPrescriptionMap().values();
 		
 		StringBuilder builder = new StringBuilder();
 		
 		products.stream()
 			.forEach(p -> {
 				builder.append(
-						"<tr><th scope=\"row\">" + p.getId() + "</th>"
-						+	"<td>" + p.getName() + "</td>"
-						+	"<td>" + p.getBrand() + "</td>"
-						+	"<td>" + new BigDecimal(p.getPrice()).setScale(2, RoundingMode.HALF_UP) + "&euro;</td>"
-						+ "<td>"
-						+ 	"<form method=\"post\">"
-						+ 		"<input type=\"hidden\" name=\"delete\" value=\"" + p.getId() + "\">"
-						+ 		"<button class=\"btn btn-sm btn-danger\" type=\"submit\">Delete</button>"
-						+ 	"</form>"
-						+ "</td>"
-						+"</tr>");
+						"<tr><th scope=\"row\" class=\"align-middle\">" + p.getId() + "</th>"
+						+	"<td class=\"align-middle\">" + p.getName() + "</td>"
+						+	"<td class=\"align-middle\">" + p.getBrand() + "</td>"
+						+	"<td class=\"align-middle\">" + new BigDecimal(p.getPrice()).setScale(2, RoundingMode.HALF_UP) + "&euro;</td>"
+						+ 	"<td class=\"align-middle\">"
+						+ 		"<form method=\"post\">"
+						+ 			"<input type=\"hidden\" name=\"delete\" value=\"" + p.getId() + "\">"
+						+ 			"<button class=\"btn btn-sm btn-outline-danger\" type=\"submit\" name=\"action\" value=\"delete\">Delete</button>"
+						+ 		"</form>"
+						+ 	"</td>");
+				
+				if (!(p instanceof Lens)) {
+					builder.append(
+								"<td>"
+								+ "<form method=\"post\">"
+								+ "<div class=\"input-group\">"
+								+ 	"<select class=\"custom-select\" id=\"addPrescription" + p.getId() + "\" name=\"add\">"
+								+ 		"<option selected disabled value=\"\">Prescription</option>"
+								);
+					
+					prescriptions.stream()
+						.forEach(
+							presc -> {
+								builder.append(
+											"<option value=\"" + presc.getId() + "\">"
+											+ 	presc.getId() + " " + presc.getEye() + " Eye"
+											+ "</option>"
+										);
+							}
+						);
+								
+					builder.append(
+								"</select>"
+								+ 	"<div class=\"input-group-append\">"
+								+ 		"<button class=\"btn btn-outline-secondary\" type=\"submit\" name=\"add\">Add</button>"
+								+ 	"</div>"
+								+ "</div>"
+								+ "</form>"
+								+"</td>");
+				}
+				
+				if (p instanceof Lens) {
+					builder.append("<td></td>");
+				}
+				builder.append("</tr>");
 			});
+		
 		Double totalPrice = customerDao.getLoggedInCustomer().getTotalPrice();
 		builder.append(
 				"<tr><th scope=\"row\"></th>"
-				+ "<td></td><td></td>"
+				+ "<td></td><td></td><td></td>"
 				+ "<th>Total:</th><th>" + new BigDecimal(totalPrice).setScale(2, RoundingMode.HALF_UP) + "&euro;</th>"
 				);
 		
 		
 		return builder.toString();
+	}
+	
+	public void addLens(Integer id) {
+		customerDao.getLoggedInCustomer().addLensToCart(id);
 	}
 	
 	// -----------------------------------------------------------------------------------------------------------------

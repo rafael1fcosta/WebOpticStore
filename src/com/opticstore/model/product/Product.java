@@ -11,6 +11,7 @@ public class Product extends AbstractModel {
 	private String name;
 	private Brand brand;
 	private Double price;
+	private Integer imgId;
 	
 	private static int productId = 0;
 	
@@ -34,12 +35,20 @@ public class Product extends AbstractModel {
 		return name;
 	}
 	
+	public Integer getImgId() {
+		return imgId;
+	}
+	
+	public void setImgId(Integer imgId) {
+		this.imgId = imgId;
+	}
+	
 	public static String creatHtml(Product product) {
 		
 		return 
 				"<div class=\"col-lg-4 col-md-6 mb-4\" id=\"product" + product.getId() + "\" brand=\"" + product.getBrand().toString() + "\">"
 				+ "<div class=\"card h-100\">"
-				+ 	"<a href=\"#\"><img class=\"card-img-top\" src=\"http://placehold.it/700x400\" alt=\"\"></a>"
+				+ 	"<a href=\"#\"><img class=\"card-img-top\" src=\"http://localhost:8080/OpticStore/resources/" + product.getBrand().getType() + product.getImgId() + ".jpg\" alt=\"\"></a>"
 				+ 	"<div class=\"card-body\">"
 				+ 		"<h4 class=\"card-title\">"
 				+ 			"<a href=\"#\">" + product.getName() + "</a>"
@@ -57,5 +66,4 @@ public class Product extends AbstractModel {
 				+ "</div>"
 				+"</div>";
 	}
-
 }

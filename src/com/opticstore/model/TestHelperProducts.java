@@ -8,6 +8,7 @@ import java.util.stream.Collectors;
 
 import com.opticstore.model.brand.Brand;
 import com.opticstore.model.brand.BrandType;
+import com.opticstore.model.product.Lens;
 import com.opticstore.model.product.Product;
 
 
@@ -34,6 +35,10 @@ public class TestHelperProducts {
 
 	
 	public static Collection<Product> getTestProducts(BrandType type) {
+		
+		model1.setImgId(1);
+		model2.setImgId(2);
+		steveMcqueen.setImgId(3);
 		
 		products.put(model1.getId(), model1);
 		products.put(model2.getId(), model2);
@@ -62,6 +67,11 @@ public class TestHelperProducts {
 	
 	public static Product getProduct(Integer id) {
 		return products.get(id);
+	}
+
+
+	public static void addLens(Lens lens) {
+		products.put(lens.getId(), lens);
 	}
 	
 }

@@ -5,7 +5,8 @@ import java.util.Collection;
 public enum BrandType {
 
 	FRAME("Frames"),
-	CONTACTS("Contact Lens");
+	CONTACTS("Contact Lens"), 
+	LENS("Lens");
 	
 	//---------------------------------------------------------------------------------------------------
 	
