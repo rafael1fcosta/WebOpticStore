@@ -89,9 +89,7 @@ public class CartController {
 		
 		return new ModelAndView("cart", models);
 	}
-	
-	
-	
+		
 	//---------------------------------------------------------------------------------------------------
 
 	@Autowired

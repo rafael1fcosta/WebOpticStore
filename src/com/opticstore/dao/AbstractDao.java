@@ -12,6 +12,7 @@ public abstract class AbstractDao<T> implements Dao<T> {
 
     private static Map<Integer, Customer> customerMap = new HashMap<>();
 
+    // -----------------------------------------------------------------------------------------------------------------
 
     public Map<Integer, Customer> getCustomerMap() {
         return customerMap;

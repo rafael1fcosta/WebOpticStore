@@ -50,15 +50,6 @@ public class ServiceImpl implements ServiceInterface {
 
         prescriptionDao.add(new Prescription(sphere, cil, axis, eye));
     }
-
-    public void generateCustomerForTest() {
-    	Customer customer = new Customer("raf");
-    	customer.setId(1);
-    	
-    	if (customerDao.find(customer) == null) {
-    		customerDao.add(customer);
-    	}
-    }
     
 	public void addCustomer(Customer customer) {
 		customerDao.add(customer);

@@ -8,12 +8,16 @@ public class Brand {
 	
 	private static int id = 1;
 	
+	// -----------------------------------------------------------------------------------------------------------------
+	
 	public Brand(String name, BrandType type) {
 		brandId = Brand.id;
 		Brand.id++;
 		this.name= name;
 		this.type = type;
 	}
+	
+	// -----------------------------------------------------------------------------------------------------------------
 
 	public String getName() {
 		return name;

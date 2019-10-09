@@ -12,6 +12,8 @@ public class Product extends AbstractModel {
 	
 	private static int productId = 0;
 	
+	// -----------------------------------------------------------------------------------------------------------------
+	
 	public Product(String name, Brand brand, Double price) {
 		this.name = name;
 		this.brand = brand;
@@ -19,6 +21,8 @@ public class Product extends AbstractModel {
 		productId++;
 		setId(productId);
 	}
+	
+	// -----------------------------------------------------------------------------------------------------------------
 
 	public Brand getBrand() {
 		return brand;

@@ -10,6 +10,8 @@ public class Prescription extends AbstractModel {
     private Double cil;
     private Double axis;
     private Eye eye;
+    
+    // -----------------------------------------------------------------------------------------------------------------
 
     public Prescription(Double sphere, Double cil, Double axis, String eye) {
         super.setId(++prescriptionCounter);
@@ -27,6 +29,8 @@ public class Prescription extends AbstractModel {
 		}
     }
 
+    // -----------------------------------------------------------------------------------------------------------------
+    
     public Double getSphere() {
         return sphere;
     }

@@ -32,6 +32,7 @@ public class TestHelperProducts {
 	private static Map<Integer, Product> products = new HashMap<>();
 	private static Map<Integer, Brand> brands = new HashMap<>();
 
+	// -----------------------------------------------------------------------------------------------------------------
 	
 	public static Collection<Product> getTestProducts(BrandType type) {
 		

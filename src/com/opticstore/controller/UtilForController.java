@@ -1,7 +1,5 @@
 package com.opticstore.controller;
 
-import java.math.BigDecimal;
-import java.math.RoundingMode;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -17,6 +15,8 @@ import com.opticstore.service.ServiceImpl;
 public class UtilForController {
 
 	private ServiceImpl service;
+	
+	// -----------------------------------------------------------------------------------------------------------------
 	
 	public Map<String, Object> addCustomerToModel() {
 		
