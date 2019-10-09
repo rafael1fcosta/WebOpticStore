@@ -41,11 +41,25 @@ public class CustomerPageController {
 	@PostMapping(path="/customerPage")
 	public ModelAndView addPrescription() {
 		
+		if (service.getLoggedInCustomer() == null) {
+			RedirectView view = new RedirectView();
+			view.setUrl("http://localhost:8080/OpticStore/welcome");
+			
+			return new ModelAndView(view);
+		}
+		
 		return new ModelAndView("newPrescriptionPage", util.addCustomerToModel());
 	}
 	
 	@PostMapping(path="/customerPage", params = "save")
 	public ModelAndView savePrescription(Prescription prescription) {
+		
+		if (service.getLoggedInCustomer() == null) {
+			RedirectView view = new RedirectView();
+			view.setUrl("http://localhost:8080/OpticStore/welcome");
+			
+			return new ModelAndView(view);
+		}
 		
 		Map<String, Object> models = util.addCustomerToModel();		
 		

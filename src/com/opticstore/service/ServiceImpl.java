@@ -1,7 +1,5 @@
 package com.opticstore.service;
 
-import java.math.BigDecimal;
-import java.math.RoundingMode;
 import java.util.Collection;
 import java.util.Map;
 
@@ -16,7 +14,6 @@ import com.opticstore.model.brand.Brand;
 import com.opticstore.model.brand.BrandType;
 import com.opticstore.model.customer.Customer;
 import com.opticstore.model.customer.Prescription;
-import com.opticstore.model.product.Lens;
 import com.opticstore.model.product.Product;
 
 
@@ -41,9 +38,7 @@ public class ServiceImpl implements ServiceInterface {
 
 	@Override
     public boolean clientHasPrescription() {
-
         return !customerDao.getLoggedInCustomer().getPrescriptionMap().isEmpty();
-
     }
 
     @Override
@@ -96,7 +91,6 @@ public class ServiceImpl implements ServiceInterface {
 	}
 
 	public Collection<Product> getProducts(BrandType type) {
-		
 		return TestHelperProducts.getTestProducts(type);
 	}
 	

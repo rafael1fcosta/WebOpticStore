@@ -13,7 +13,6 @@ import org.springframework.web.servlet.view.RedirectView;
 
 import com.opticstore.model.ModelToHtml;
 import com.opticstore.model.brand.BrandType;
-import com.opticstore.model.product.Product;
 import com.opticstore.service.ServiceImpl;
 
 @Controller
@@ -28,7 +27,10 @@ public class ShopController {
 	public ModelAndView toShopForFrames(@PathVariable String option) {
 		
 		if (service.getLoggedInCustomer() == null) {
-			return new ModelAndView(new RedirectView("welcome"));
+			RedirectView view = new RedirectView();
+			view.setUrl("http://localhost:8080/OpticStore/welcome");
+			
+			return new ModelAndView(view);
 		}
 		
 		BrandType brandTypeChoosen = getBrandTypeChoosen(option);
@@ -50,9 +52,12 @@ public class ShopController {
 	
 	@GetMapping(path = "/shop/filter/{type}/{id}")
 	public ModelAndView filterProducts(@PathVariable String type, @PathVariable Integer id) {
-		
+
 		if (service.getLoggedInCustomer() == null) {
-			return new ModelAndView(new RedirectView("welcome"));
+			RedirectView view = new RedirectView();
+			view.setUrl("http://localhost:8080/OpticStore/welcome");
+			
+			return new ModelAndView(view);
 		}
 		
 		BrandType brandTypeChoosen = getBrandTypeChoosen(type);
@@ -77,6 +82,10 @@ public class ShopController {
 	
 	@PostMapping(path = {"shop/{type}", "shop/filter/{type}/{id}"})
 	public String addToCart(@PathVariable String type, @RequestParam(name = "addToCart") Integer id) {
+		
+		if (service.getLoggedInCustomer() == null) {
+			return "redirect:/welcome";
+		}
 		
 		service.addToCart(id);
 		

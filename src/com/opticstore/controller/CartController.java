@@ -4,9 +4,7 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
@@ -42,6 +40,13 @@ public class CartController {
 	@PostMapping(path = "/cart", params = "delete")
 	public ModelAndView deleteProduct(@RequestParam(name = "delete") Integer id) {
 		
+		if (service.getLoggedInCustomer() == null) {
+			RedirectView view = new RedirectView();
+			view.setUrl("http://localhost:8080/OpticStore/welcome");
+			
+			return new ModelAndView(view);
+		}
+		
 		Map<String, Object> models = util.addCustomerToModel();
 		
 		service.removeFromCart(id);
@@ -54,7 +59,12 @@ public class CartController {
 	@PostMapping(path = "/cart", params = "add")
 	public ModelAndView addPrescriptionToProduct(@RequestParam(name = "add") String input) {
 		
-		System.out.print(input);
+		if (service.getLoggedInCustomer() == null) {
+			RedirectView view = new RedirectView();
+			view.setUrl("http://localhost:8080/OpticStore/welcome");
+			
+			return new ModelAndView(view);
+		}
 		
 		if (input == null || input.isEmpty()) {
 			return new ModelAndView(new RedirectView("cart"));
