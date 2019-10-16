@@ -21,6 +21,8 @@ public class Customer extends AbstractModel{
     
     private Collection<Product> products;
     
+    // -----------------------------------------------------------------------------------------------------------------
+    
     public Customer() {
     	this.prescriptionMap = new HashMap<>();
     	this.products = new ArrayList<>();
@@ -31,6 +33,8 @@ public class Customer extends AbstractModel{
         this.name = name;
         this.prescriptionMap = new HashMap<>();
     }
+    
+ // -----------------------------------------------------------------------------------------------------------------
 
     public Map<Integer, Prescription> getPrescriptionMap() {
         return prescriptionMap;
@@ -71,7 +75,5 @@ public class Customer extends AbstractModel{
 		
 		products.add(lens);
 		TestHelperProducts.addLens(lens);
-		
-		
 	}
 }
